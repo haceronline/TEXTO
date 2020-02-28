@@ -18,7 +18,7 @@ window.addEventListener('resize',
 	function{
 		canvas.width = window.innerWidth;
 		canvas.height = window.innerHeight;
-		circleArray = []
+			init();
 	}
 )
 
@@ -76,6 +76,17 @@ function Circle (x,y,dx,dy,radius){
 
 var circleArray = [];
 
+function animate() {
+	requestAnimationFrame(animate);
+	c.clearRect(0,0,innerWidth,innerHeight); 
+	for (var i = 0; i < circleArray.length; i++) {
+		circleArray[i].update();
+	}
+}
+
+function init() {
+var circleArray = [];
+
 for (var i = 300; i >= 0; i--) {
 	var x = Math.random()* (innerWidth-radius*2) + radius;
 	var y = Math.random()* (innerHeight-radius*2) + radius;
@@ -85,12 +96,6 @@ for (var i = 300; i >= 0; i--) {
 	circleArray.push(new Circle(x,y,dx,dy,radius));
 }
 
-function animate() {
-	requestAnimationFrame(animate);
-	c.clearRect(0,0,innerWidth,innerHeight); 
-	for (var i = 0; i < circleArray.length; i++) {
-		circleArray[i].update();
-	}
 }
-
+init();
 animate();
