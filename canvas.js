@@ -14,6 +14,13 @@ window.addEventListener('mousemove',
 		mouse.y=event.y;
 	}
 )
+window.addEventListener('resize',
+	function{
+		canvas.width = window.innerWidth;
+		canvas.height = window.innerHeight;
+		circleArray = []
+	}
+)
 
 var minRadius = 10;
 var maxRadius = 40;
@@ -77,6 +84,7 @@ for (var i = 300; i >= 0; i--) {
 	var radius = 10 ;
 	circleArray.push(new Circle(x,y,dx,dy,radius));
 }
+
 function animate() {
 	requestAnimationFrame(animate);
 	c.clearRect(0,0,innerWidth,innerHeight); 
